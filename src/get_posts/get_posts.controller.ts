@@ -1,4 +1,4 @@
-import { GetPostsService } from "./get_posts..service.ts";
+import { GetPostsService } from "./get_posts.service.ts";
 import type { Response, Request } from "express";
 
 export class GetPostsController{
