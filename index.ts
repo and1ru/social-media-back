@@ -5,6 +5,7 @@ import { LoginController } from "./src/login/login.controller.ts"
 import { CreatePostController } from './src/create_post/post.controller.ts'
 import { GetPostsController } from './src/get_posts/get_posts.controller.ts'
 import { SendRequestController } from './src/send_request/send_request.controller.ts'
+import { RejectRequestController } from './src/reject_request/reject_request.controller.ts'
 const app = express()
 app.use(express.json())
 const routes = Router()
@@ -13,12 +14,14 @@ const login = new LoginController()
 const createPost = new CreatePostController()
 const get_posts = new GetPostsController()
 const send_request = new SendRequestController()
+const reject_request = new RejectRequestController()
 
 routes.post("/register", register.register)
 routes.post("/login", login.login)
 routes.post("/create-post", createPost.post)
 routes.get("/get-posts", get_posts.getPost)
 routes.post("/send-request", send_request.sendRequest)
+routes.put("/reject-request", reject_request.rejectRequest)
 
 app.use(routes)
 
