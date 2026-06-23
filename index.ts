@@ -1,4 +1,6 @@
 import express from 'express'
+import cors from 'cors'
+
 import { Router } from 'express'
 import { RegisterController } from './src/register/register.controller.ts'
 import { LoginController } from "./src/login/login.controller.ts"
@@ -8,7 +10,9 @@ import { SendRequestController } from './src/send_request/send_request.controlle
 import { RejectRequestController } from './src/reject_request/reject_request.controller.ts'
 import { AcceptRequestController } from './src/accept_request/accept_request.controller.ts'
 import { FriendsController } from './src/friends/friends.controller.ts'
+
 const app = express()
+app.use(cors({origin:"*"}))
 app.use(express.json())
 const routes = Router()
 const register = new RegisterController()

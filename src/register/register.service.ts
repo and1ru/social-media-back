@@ -13,7 +13,8 @@ export class RegisterService {
         const hashedPassword = await hashPassword(user.password)
         const newUser = {
             ...user,
-            password:hashedPassword
+            password:hashedPassword,
+            friends: []
         }
         console.log(newUser)
         return registerRepository(newUser)
