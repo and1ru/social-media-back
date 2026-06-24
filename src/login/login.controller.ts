@@ -1,22 +1,19 @@
-import type { Request, Response } from "express";
+import type { NextFunction, Request, Response } from "express";
 import { loginSchema } from "./login.schema.ts";
 import { LoginService } from "./login.service.ts";
 export class LoginController {
   private service = new LoginService();
 
-  login = async (req: Request, res: Response) => {
+  login = async (req: Request, res: Response, next:NextFunction) => {
     const data = loginSchema.safeParse(req.body);
-    if (!data.success) {
-      return res.status(401).json({ message: "datos no validos" });
-    }
-
+    if (!data.success) return next(data.error)
+      
     try {
       const result = await this.service.login(data.data);
-      res.status(200).json({ result, message: "login" });
-      return;
+      return res.status(200).json({ result, message: "login" });
     } catch (error) {
       console.log(error);
-      return res.status(500).json({ message: "error interno del servidor" });
+      next(error)
     }
   };
 }
