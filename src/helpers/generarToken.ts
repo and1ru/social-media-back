@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken'
+import { envs } from './envs.ts';
 
 interface Payload {
     name: string;
@@ -10,7 +11,7 @@ export function generarToken({id, name}:Payload) {
         {
             name,
             id
-        }, "palabra_secreta"
+        }, envs.jwt_secret
     )
 
     return token

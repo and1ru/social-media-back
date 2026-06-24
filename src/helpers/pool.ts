@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb";
-const url = "mongodb://localhost:27017"
+import { envs } from "./envs.ts";
+const url = envs.db_url
 const client = new MongoClient(url)
 await client.connect()
 console.log("mongodb conectado")
-export const myDb = client.db("mydb")
+export const myDb = client.db(envs.db_collection)
