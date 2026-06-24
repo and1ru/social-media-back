@@ -9,6 +9,7 @@ import { RejectRequestController } from './reject_request/reject_request.control
 import { AcceptRequestController } from './accept_request/accept_request.controller.ts'
 import { FriendsController } from './friends/friends.controller.ts'
 import { AuthController } from './auth/Auth.controller.ts'
+import { AuthToken } from './middlewares/authToken.ts'
 
 const routes = Router()
 
@@ -31,7 +32,7 @@ routes.get("/get-posts", get_posts.getPost)
 routes.post("/send-request", send_request.sendRequest)
 routes.put("/reject-request", reject_request.rejectRequest)
 routes.put("/accept-request", accept_request.acceptRequest)
-routes.get("/friends", friends.friends)
+routes.get("/friends", AuthToken, friends.friends)
 routes.get("/auth/me", authMe.auth)
 
 // Exportamos el router principal

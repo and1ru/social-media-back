@@ -6,12 +6,10 @@ export class FriendsController {
     private service = new FriendsService()
 
     friends = async (req:Request, res:Response, next:NextFunction) => {
-        const data = friendsSchema.safeParse(req.body)
-        if(!data.success){
-            return next(data.error)
-        }
+        const user = req.user
+
         try {
-            const result = await this.service.friends(data.data.id)
+            const result = await this.service.friends(user.id)
             return res.status(200).json({message:"se obtuvieron los amigos", result})
         } catch (error) {
             console.log(error)

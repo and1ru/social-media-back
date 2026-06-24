@@ -6,7 +6,7 @@ interface CustomJwtPayload extends JwtPayload{
     role:string
 }
 
-export const AuthToken = (...roles:string[]) => {
+export const AuthRole = (...roles:string[]) => {
     return (req:Request, res:Response, next:NextFunction) => {
         try {
             const token = req.cookies.token
