@@ -1,13 +1,13 @@
-import type { Request, Response } from "express"
+import type { NextFunction, Request, Response } from "express"
 import { postSchema } from "./post.schema.ts"
 import { PostService } from "./post.service.ts"
 
 export class CreatePostController {
     private service = new PostService()
-    post = async (req:Request, res:Response) => {
+    post = async (req:Request, res:Response, next:NextFunction) => {
         const data = postSchema.safeParse(req.body)
         if(!data.success){
-            return res.status(401).json({message:"datos no validos"})
+            return next(data.error)
         }
         try {
             const fecha = new Date()
@@ -21,7 +21,7 @@ export class CreatePostController {
             return res.status(201).json({message:"post creado"})
         } catch (error) {
             console.log(error)
-            return res.status(500).json({message:'error del servidor'})
+            next(error)
         }
     }
 }

@@ -1,3 +1,4 @@
+import { CustomError } from "../helpers/custom-error.ts";
 import { findRequest, rejectRequest } from "./reject_request.repository.ts"
 
 export class RejectRequestService {
@@ -6,7 +7,7 @@ export class RejectRequestService {
         const verifyRequest = await findRequest(id)
         console.log(verifyRequest)
         if(!verifyRequest){
-            throw new Error("no hay una peticion de amistad con ese id");
+            throw new CustomError("no hay una peticion de amistad con ese id",400);
         }
         // rechazar la peticion
         const result = await rejectRequest(id)
