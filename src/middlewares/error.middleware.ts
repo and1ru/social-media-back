@@ -1,6 +1,6 @@
 import type { Request, Response, NextFunction } from "express"
 import jwt from 'jsonwebtoken'
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../helpers/custom-error.ts"
 import { ZodError } from "zod"
 
 export const errorMiddleware = (err: Error | CustomError, req: Request, res: Response, next: NextFunction) => {
