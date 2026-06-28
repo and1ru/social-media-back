@@ -29,7 +29,7 @@ const logOut = new LogOutController()
 // Definición de rutas
 routes.post("/register", register.register)
 routes.post("/login", login.login)
-routes.post("/create-post", createPost.post)
+routes.post("/create-post", AuthToken, createPost.post)
 routes.get("/get-posts", get_posts.getPost)
 routes.post("/send-request", send_request.sendRequest)
 routes.put("/reject-request", reject_request.rejectRequest)

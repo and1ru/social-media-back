@@ -6,18 +6,12 @@ export class CreatePostController {
     private service = new PostService()
     post = async (req:Request, res:Response, next:NextFunction) => {
         const data = postSchema.safeParse(req.body)
+        const userId = req.user.id
         if(!data.success){
             return next(data.error)
         }
         try {
-            const fecha = new Date()
-            const user_id = "hola hola hola"
-            const post = {
-                ...data.data,
-                fecha,
-                user_id
-            }
-            await this.service.post(post)
+            await this.service.post(data.data.content, userId)
             return res.status(201).json({message:"post creado"})
         } catch (error) {
             console.log(error)
