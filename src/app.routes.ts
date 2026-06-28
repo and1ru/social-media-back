@@ -10,6 +10,7 @@ import { AcceptRequestController } from './accept_request/accept_request.control
 import { FriendsController } from './friends/friends.controller.ts'
 import { AuthController } from './auth/Auth.controller.ts'
 import { AuthToken } from './middlewares/authToken.ts'
+import { LogOutController } from './logout/logOut.controller.ts'
 
 const routes = Router()
 
@@ -23,6 +24,7 @@ const reject_request = new RejectRequestController()
 const accept_request = new AcceptRequestController()
 const friends = new FriendsController()
 const authMe = new AuthController()
+const logOut = new LogOutController()
 
 // Definición de rutas
 routes.post("/register", register.register)
@@ -34,6 +36,7 @@ routes.put("/reject-request", reject_request.rejectRequest)
 routes.put("/accept-request", accept_request.acceptRequest)
 routes.get("/friends", AuthToken, friends.friends)
 routes.get("/auth/me", authMe.auth)
+routes.post("/log-out", logOut.logOut)
 
 // Exportamos el router principal
 export { routes }
