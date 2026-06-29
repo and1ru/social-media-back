@@ -8,7 +8,6 @@ export class GetPostsController{
             const result = await this.service.getPost()
             return res.status(200).json({message:"se obtuvieron los posts", result})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

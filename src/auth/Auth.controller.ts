@@ -19,7 +19,6 @@ export class AuthController {
 
             return res.status(200).json({ success: true, message: "token valido" })
         } catch (error) {
-            console.log(error)
             next(error)
         }
 

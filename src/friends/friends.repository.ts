@@ -9,12 +9,8 @@ export const friends = async (id:string) => {
         throw new Error("no se obtubo ningun usuario");
     }
 
-    // muestra en la consola el usuario
-    console.log("se obtuvieron los datos, desde el respository" + result)
-
     // obtener solo los ids del array
     const friendsArray = result.friends
-    console.log(friendsArray)
 
     // obtener el nombre y id de cada amigo
     // 1. tener un array que contenga los objetos
@@ -24,8 +20,6 @@ export const friends = async (id:string) => {
 
     for (let i = 0; i < friendsArray.length; i++) {
         const element = friendsArray[i];
-        console.log("se obtubo el id del elemento")
-        console.log(element)
         const user = await myDb.collection("users").findOne({_id:element})
         if(!user){
             break
@@ -38,7 +32,6 @@ export const friends = async (id:string) => {
     }
 
     for (let i = 0; i < arr.length; i++) {
-        console.log(arr[i])
     }
 
     return result

@@ -24,7 +24,6 @@ export class LoginService {
       name: result.name
     }
 
-    console.log(userToken)
     // generar el token
     const token = generarToken(userToken)
     return token;

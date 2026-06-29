@@ -10,8 +10,6 @@ export class LoginController {
 
     try {
       const result = await this.service.login(data.data);
-
-      console.log(result)
       
       res.cookie(
         "token",
@@ -24,7 +22,6 @@ export class LoginController {
       )
       return res.status(200).json({ success: true});
     } catch (error) {
-      console.log(error);
       next(error)
     }
   };

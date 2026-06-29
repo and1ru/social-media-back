@@ -14,7 +14,6 @@ export class CreatePostController {
             await this.service.post(data.data.content, userId)
             return res.status(201).json({message:"post creado"})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

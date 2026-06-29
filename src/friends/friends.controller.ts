@@ -12,7 +12,6 @@ export class FriendsController {
             const result = await this.service.friends(user.id)
             return res.status(200).json({message:"se obtuvieron los amigos", result})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

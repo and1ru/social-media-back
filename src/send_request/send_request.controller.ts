@@ -14,7 +14,6 @@ export class SendRequestController {
             const result = await this.service.sendRequest(data.data)
             return res.status(200).json({message:"se envio la solicitud", result})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

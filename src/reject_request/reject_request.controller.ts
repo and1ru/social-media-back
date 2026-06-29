@@ -14,7 +14,6 @@ export class RejectRequestController {
             const result = await this.service.rejectRequest(data.data.id)
             return res.status(200).json({message:"solicitud rechazada", result})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

@@ -11,6 +11,7 @@ import { FriendsController } from './friends/friends.controller.ts'
 import { AuthController } from './auth/Auth.controller.ts'
 import { AuthToken } from './middlewares/authToken.ts'
 import { LogOutController } from './logout/logOut.controller.ts'
+import { FindUsersController } from './find_users/find_users.controller.ts'
 
 const routes = Router()
 
@@ -25,6 +26,7 @@ const accept_request = new AcceptRequestController()
 const friends = new FriendsController()
 const authMe = new AuthController()
 const logOut = new LogOutController()
+const findUsers = new FindUsersController()
 
 // Definición de rutas
 routes.post("/register", register.register)
@@ -37,6 +39,7 @@ routes.put("/accept-request", accept_request.acceptRequest)
 routes.get("/friends", AuthToken, friends.friends)
 routes.get("/auth/me", authMe.auth)
 routes.post("/log-out", logOut.logOut)
+routes.get("/find-users/:name", findUsers.findUsers)
 
 // Exportamos el router principal
 export { routes }

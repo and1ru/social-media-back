@@ -15,7 +15,6 @@ export class RegisterController {
             await this.service.register(user)
             return res.status(201).json({success:true, message:'usuario fue creado'})
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

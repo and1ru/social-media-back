@@ -17,7 +17,7 @@ export class RegisterService {
             password:hashedPassword,
             friends: []
         }
-        console.log(newUser)
+        
         return registerRepository(newUser)
     }
 }
