@@ -13,6 +13,7 @@ import { AuthToken } from './middlewares/authToken.ts'
 import { LogOutController } from './logout/logOut.controller.ts'
 import { FindUsersController } from './find_users/find_users.controller.ts'
 import { GetRequestsController } from './get_requests/get_requests.controller.ts'
+import getMessages from './get_message/get_message.route.ts'
 
 const routes = Router()
 
@@ -43,6 +44,8 @@ routes.get("/auth/me", authMe.auth)
 routes.post("/log-out", logOut.logOut)
 routes.get("/find-users/:name", findUsers.findUsers)
 routes.get("/get-requests",AuthToken, getRequests.getRequest)
+
+routes.use(getMessages)
 
 // Exportamos el router principal
 export { routes }
