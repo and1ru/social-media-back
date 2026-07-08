@@ -1,6 +1,9 @@
 import { myDb } from "../helpers/pool.ts"
 import { ObjectId } from "mongodb"
 
+// en este archivo hay logica
+// deberia ir en el service
+
 export const acceptRequest = async (id:string) => {
     const request = await myDb.collection("friend_requests").findOne({_id: new ObjectId(id)})
     if(!request){

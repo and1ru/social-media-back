@@ -1,6 +1,6 @@
-import { createPost } from "./post.repository.ts";
+import { createPost } from "./create_post.repository.ts";
 
-export class PostService {
+export class CreatePostService {
   post = async (content: string, userId:string) => {
     const fecha = new Date();
     const post = {

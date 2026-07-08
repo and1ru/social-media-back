@@ -3,7 +3,8 @@ import { friendsSchema } from "./friends.schema.ts";
 import { FriendsService } from "./friends.service.ts";
 
 export class FriendsController {
-    private service = new FriendsService()
+    
+    constructor(private service:FriendsService){}
 
     friends = async (req:Request, res:Response, next:NextFunction) => {
         const user = req.user

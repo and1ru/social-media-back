@@ -3,7 +3,7 @@ import { acceptRequestSchema } from "./accept_request.schema.ts"
 import { AcceptRequestService } from "./accept_request.service.ts"
 
 export class AcceptRequestController {
-    private service = new AcceptRequestService()
+    constructor (private service:AcceptRequestService){}
     acceptRequest = async (req:Request, res:Response, next:NextFunction) => {
         const data = acceptRequestSchema.safeParse(req.body)
         if(!data.success){

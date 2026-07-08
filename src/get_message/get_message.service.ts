@@ -22,7 +22,6 @@ export class GetMessagesService {
         const ids = [userId, friendId]
         const chat = ids.sort().join("-")    
         const result = await getMessagesRepository(chat)
-        console.log(result)
 
         return result
     }

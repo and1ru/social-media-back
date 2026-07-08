@@ -1,51 +1,44 @@
 // src/app.routes.ts
-import { Router } from 'express'
-import { RegisterController } from './register/register.controller.ts'
-import { LoginController } from "./login/login.controller.ts"
-import { CreatePostController } from './create_post/post.controller.ts'
-import { GetPostsController } from './get_posts/get_posts.controller.ts'
-import { SendRequestController } from './send_request/send_request.controller.ts'
-import { RejectRequestController } from './reject_request/reject_request.controller.ts'
-import { AcceptRequestController } from './accept_request/accept_request.controller.ts'
-import { FriendsController } from './friends/friends.controller.ts'
-import { AuthController } from './auth/Auth.controller.ts'
-import { AuthToken } from './middlewares/authToken.ts'
-import { LogOutController } from './logout/logOut.controller.ts'
-import { FindUsersController } from './find_users/find_users.controller.ts'
-import { GetRequestsController } from './get_requests/get_requests.controller.ts'
-import getMessages from './get_message/get_message.route.ts'
+import { Router } from "express";
+import { AuthController } from "./auth/Auth.controller.ts";
+import { LogOutController } from "./logout/logOut.controller.ts";
 
-const routes = Router()
+import acceptRequest from "./accept_request/accept_request.route.ts";
+import createPost from './create_post/create_post.route.ts'
+import deletePost from './delete_post/delete_post.route.ts'
+import findUsers from './find_users/find_users.route.ts'
+import friends from './friends/friends.route.ts'
+import getMessages from "./get_message/get_message.route.ts";
+import getPosts from './get_posts/get_posts.route.ts'
+import getRequest from './get_requests/get_requests.route.ts'
+import login from './login/login.route.ts'
+import register from './register/register.route.ts'
+import rejectRequest from './reject_request/reject_request.route.ts'
+import sendRequest from './send_request/send_request.route.ts'
+import auth from './auth/Auth.route.ts'
+
+const routes = Router();
 
 // Instancias de los controladores
-const register = new RegisterController()
-const login = new LoginController()
-const createPost = new CreatePostController()
-const get_posts = new GetPostsController()
-const send_request = new SendRequestController()
-const reject_request = new RejectRequestController()
-const accept_request = new AcceptRequestController()
-const friends = new FriendsController()
-const authMe = new AuthController()
-const logOut = new LogOutController()
-const findUsers = new FindUsersController()
-const getRequests = new GetRequestsController()
+const authMe = new AuthController();
+const logOut = new LogOutController();
 
 // Definición de rutas
-routes.post("/register", register.register)
-routes.post("/login", login.login)
-routes.post("/create-post", AuthToken, createPost.post)
-routes.get("/get-posts", get_posts.getPost)
-routes.post("/send-request", AuthToken, send_request.sendRequest)
-routes.put("/reject-request", reject_request.rejectRequest)
-routes.put("/accept-request", accept_request.acceptRequest)
-routes.get("/friends", AuthToken, friends.friends)
-routes.get("/auth/me", authMe.auth)
-routes.post("/log-out", logOut.logOut)
-routes.get("/find-users/:name", findUsers.findUsers)
-routes.get("/get-requests",AuthToken, getRequests.getRequest)
+routes.post("/log-out", logOut.logOut);
 
-routes.use(getMessages)
+routes.use(acceptRequest);
+routes.use(createPost)
+routes.use(deletePost)
+routes.use(findUsers)
+routes.use(friends)
+routes.use(getMessages);
+routes.use(getPosts)
+routes.use(getRequest)
+routes.use(login)
+routes.use(register)
+routes.use(rejectRequest)
+routes.use(sendRequest)
+routes.use(auth)
 
 // Exportamos el router principal
-export { routes }
+export { routes };

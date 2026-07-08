@@ -4,7 +4,11 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "tsx": "^4.23.0"
+  },
+  "scripts": {
+    "dev": "tsx watch index.ts"
   },
   "peerDependencies": {
     "typescript": "^5"

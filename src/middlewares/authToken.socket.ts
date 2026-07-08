@@ -14,7 +14,6 @@ export const AuthTokenSocket = (io:Server) => {
     io.use((socket, next) => {
     const cookies = parseCookie(socket.handshake.headers.cookie ?? "")
     const token = cookies.token
-    console.log(`token: ${token}`)
 
     // verificar que haya token
     if (!token) {
@@ -29,7 +28,6 @@ export const AuthTokenSocket = (io:Server) => {
     }
 
     socket.data.userId = verifyToken.id
-    console.log(`id: ${socket.data.userId}`)
     next()
   })
 }

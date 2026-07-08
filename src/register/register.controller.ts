@@ -3,8 +3,8 @@ import { registerSchema } from "./register.schema.ts";
 import { RegisterService } from "./register.service.ts";
 
 export class RegisterController {
-    private service = new RegisterService()
-
+    constructor(private service:RegisterService){}
+    
     register = async (req:Request, res:Response, next:NextFunction) => {
         const data = registerSchema.safeParse(req.body)
         if(!data.success){

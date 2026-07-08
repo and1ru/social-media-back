@@ -1,8 +1,9 @@
 import type { NextFunction, Request, Response } from "express";
 import { loginSchema } from "./login.schema.ts";
 import { LoginService } from "./login.service.ts";
+
 export class LoginController {
-  private service = new LoginService();
+  constructor(private service:LoginService){}
 
   login = async (req: Request, res: Response, next: NextFunction) => {
     const data = loginSchema.safeParse(req.body);

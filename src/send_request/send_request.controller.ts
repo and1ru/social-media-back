@@ -3,7 +3,7 @@ import type { NextFunction, Request, Response } from "express"
 import { SendRequestService } from "./send_request.service.ts"
 
 export class SendRequestController {
-    private service = new SendRequestService()
+    constructor(private service:SendRequestService){}
 
     sendRequest = async (req:Request, res:Response, next:NextFunction) => {
         const data = sendRequestSchema.safeParse(req.body)

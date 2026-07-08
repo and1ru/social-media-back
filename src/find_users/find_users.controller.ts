@@ -3,8 +3,7 @@ import { findUsersSchema } from "./find_users.schema.ts";
 import { FindUsersService } from "./find_users.service.ts";
 
 export class FindUsersController {
-    private service = new FindUsersService()
-
+    constructor( private service: FindUsersService){}
     findUsers = async (req:Request, res:Response, next:NextFunction) => {
         const data = findUsersSchema.safeParse(req.params)
         if(!data.success){
