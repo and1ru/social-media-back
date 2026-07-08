@@ -1,14 +1,8 @@
 import type { Server } from "socket.io";
 
 export function chatSocket(io: Server) {
-    io.use((socket, next) => {
-        const token = socket.handshake.headers.cookie
-        console.log(token)
-
-        next()
-    })
   io.on("connection", (socket) => {
-    console.log(`se conecto: ${socket.id}`);
+    console.log(`se conecto: ${socket.data.userId}`);
 
     socket.emit("saludo-inicio", {
       saludo: "hola",

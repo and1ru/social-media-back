@@ -10,7 +10,7 @@ interface payload {
 export const AuthToken = (req:Request, res:Response, next:NextFunction) => {
     const token = req.cookies.token
     if(!token){
-        return res.status(403).json({message:'jajajaja no teken'})
+        return res.status(403).json({message:'no teken'})
     }
     const verify = jwt.verify(token,envs.jwt_secret) as payload
 
