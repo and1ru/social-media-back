@@ -1,6 +1,5 @@
 // src/app.routes.ts
 import { Router } from "express";
-import { AuthController } from "./auth/Auth.controller.ts";
 import { LogOutController } from "./logout/logOut.controller.ts";
 
 import acceptRequest from "./accept_request/accept_request.route.ts";
@@ -18,6 +17,7 @@ import sendRequest from './send_request/send_request.route.ts'
 import auth from './auth/Auth.route.ts'
 import comments from './get_post_comment/get_post_comment.route.ts'
 import postComments from './comment_post/comment_post.route.ts'
+import postByUser from './posts_by_user/posts_by_user.route.ts'
 
 const routes = Router();
 
@@ -42,6 +42,7 @@ routes.use(sendRequest)
 routes.use(auth)
 routes.use(comments)
 routes.use(postComments)
+routes.use(postByUser)
 
 // Exportamos el router principal
 export { routes };
