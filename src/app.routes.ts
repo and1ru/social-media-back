@@ -16,11 +16,12 @@ import register from './register/register.route.ts'
 import rejectRequest from './reject_request/reject_request.route.ts'
 import sendRequest from './send_request/send_request.route.ts'
 import auth from './auth/Auth.route.ts'
+import comments from './get_post_comment/get_post_comment.route.ts'
+import postComments from './comment_post/comment_post.route.ts'
 
 const routes = Router();
 
 // Instancias de los controladores
-const authMe = new AuthController();
 const logOut = new LogOutController();
 
 // Definición de rutas
@@ -39,6 +40,8 @@ routes.use(register)
 routes.use(rejectRequest)
 routes.use(sendRequest)
 routes.use(auth)
+routes.use(comments)
+routes.use(postComments)
 
 // Exportamos el router principal
 export { routes };
