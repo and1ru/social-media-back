@@ -10,6 +10,6 @@ export class GetPostCommentsService {
             return new CustomError("no post", 404)
         }
 
-        return post
+        return post.comentarios
     }
 }
