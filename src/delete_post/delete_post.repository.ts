@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb"
 import { myDb } from "../helpers/pool"
 
-export const getPostRepository = async (postId:string) => {
+export const getPost = async (postId:string) => {
     const result = await myDb.collection("posts").findOne({_id: new ObjectId(postId)})
     return result
 }

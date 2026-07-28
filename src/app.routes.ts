@@ -18,6 +18,8 @@ import auth from './auth/Auth.route.ts'
 import comments from './get_post_comment/get_post_comment.route.ts'
 import postComments from './comment_post/comment_post.route.ts'
 import postByUser from './posts_by_user/posts_by_user.route.ts'
+import postById from './get_post_id/get_post_by_id.route.ts'
+import like from './like/like.route.ts'
 
 const routes = Router();
 
@@ -43,6 +45,8 @@ routes.use(auth)
 routes.use(comments)
 routes.use(postComments)
 routes.use(postByUser)
+routes.use(postById)
+routes.use(like)
 
 // Exportamos el router principal
 export { routes };
