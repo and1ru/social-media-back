@@ -21,6 +21,7 @@ import postByUser from './posts_by_user/posts_by_user.route.ts'
 import postById from './get_post_id/get_post_by_id.route.ts'
 import like from './like/like.route.ts'
 import getLikes from './get_likes/get_like.route.ts'
+import status from './user_connected/user_connected.route.ts'
 
 const routes = Router();
 
@@ -49,6 +50,7 @@ routes.use(postByUser)
 routes.use(postById)
 routes.use(like)
 routes.use(getLikes)
+routes.use(status)
 
 // Exportamos el router principal
 export { routes };
