@@ -8,11 +8,12 @@ export class CreatePostController {
   post = async (req: Request, res: Response, next: NextFunction) => {
     const data = postSchema.safeParse(req.body);
     const userId = req.user.id;
+    const name = req.user.name
     if (!data.success) {
       return next(data.error);
     }
     try {
-      await this.service.post(data.data.content, userId);
+      await this.service.post(data.data.content, userId, name);
       return res.status(201).json({ message: "post creado" });
     } catch (error) {
       next(error);

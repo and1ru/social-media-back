@@ -7,6 +7,6 @@ const controller = new PostByIdController(service)
 
 const route = Router()
 
-route.get("post/:postId", controller.postById)
+route.get("/post/:postId", controller.postById)
 
 export default route

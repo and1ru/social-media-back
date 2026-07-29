@@ -11,17 +11,20 @@ export class LoginController {
 
     try {
       const result = await this.service.login(data.data);
+
+      const { name, token, userId } = result
       
       res.cookie(
         "token",
-        result,
+        token,
         {
           maxAge: 1000 * 60 * 60, // 1h
           httpOnly: true,
           secure: false
         }
       )
-      return res.status(200).json({ success: true});
+
+      return res.status(200).json({ name, userId });
     } catch (error) {
       next(error)
     }

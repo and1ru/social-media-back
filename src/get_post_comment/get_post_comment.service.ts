@@ -1,15 +1,19 @@
 import { CustomError } from "../helpers/custom-error"
-import { getComments } from "./get_post_comment.repository"
+import { getComments, countComments } from "./get_post_comment.repository"
 
 export class GetPostCommentsService {
     getPostComments = async (postId:string) => {
         // verificar si existe el post
-        const post = await getComments(postId)
+        const comments = await getComments(postId)
 
-        if(!post){
-            return new CustomError("no post", 404)
+        const commentCount = await countComments(postId)
+
+        const result = {
+            commentCount,
+            comments
+
         }
 
-        return post.comentarios
+        return result
     }
 }

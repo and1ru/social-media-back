@@ -26,6 +26,12 @@ export class LoginService {
 
     // generar el token
     const token = generarToken(userToken)
-    return token;
+
+    const response = {
+      token,
+      userId: result._id.toString(),
+      name: result.name
+    }
+    return response;
   };
 }
