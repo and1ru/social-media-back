@@ -16,7 +16,6 @@ export class CommentPostController {
 
             return res.status(201).json({message:"el comentario fue enviado"})
         } catch (error) {
-            console.error(error)
             next(error)
         }
     }

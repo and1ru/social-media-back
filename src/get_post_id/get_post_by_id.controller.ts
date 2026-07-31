@@ -13,7 +13,6 @@ export class PostByIdController {
             const result = await this.service.postById(postId)
             return res.status(200).json({message:"se obtuvo un post", result})
         } catch (error) {
-            console.error(error)
             next(error)
         }
     }

@@ -7,7 +7,6 @@ export class GetRequestsController {
         const userId = req.user.id
         try {
             const result = await this.service.getRequest(userId)
-
             return res.status(200).json({message:"se obtuvieron todos las requests", result})
         } catch (error) {
             next(error)

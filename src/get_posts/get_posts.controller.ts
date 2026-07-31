@@ -2,7 +2,6 @@ import { GetPostsService } from "./get_posts.service.ts";
 import type { Response, Request, NextFunction } from "express";
 
 export class GetPostsController{
-   
     constructor( public service: GetPostsService){}
     getPost = async (_req:Request,res:Response, next:NextFunction) => {
         try {

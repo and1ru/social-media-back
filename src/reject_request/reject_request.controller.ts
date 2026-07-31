@@ -3,9 +3,7 @@ import { rejectRequestSchema } from "./reject_request.schema.ts";
 import { RejectRequestService } from "./reject_request.service.ts";
 
 export class RejectRequestController {
-    
     constructor(private service: RejectRequestService){}
-
     rejectRequest = async (req:Request, res:Response, next:NextFunction) => {
         const data = rejectRequestSchema.safeParse(req.body)
         if(!data.success){

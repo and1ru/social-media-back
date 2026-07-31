@@ -1,6 +1,7 @@
 import type { Request, Response } from "express"
 export class LogOutController {
     logOut = (req:Request,res:Response) => {
+        // agregar configuracion de las cookies
         res.clearCookie("token",{
             
         })

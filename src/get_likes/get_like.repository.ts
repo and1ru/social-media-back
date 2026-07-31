@@ -6,11 +6,9 @@ export const findPost = async (postId:string) => {
 }
 
 export const findLikeRepository = async (userId:string, postId:string) => {
-    const result = await myDb.collection("likes").findOne({userId, postId})
-    return result
+    return await myDb.collection("likes").findOne({userId, postId})
 }
 
 export const countLikesPosts = async (postId:string) => {
-    const result = await myDb.collection("likes").countDocuments({postId})
-    return result
+    return await myDb.collection("likes").countDocuments({postId})
 }

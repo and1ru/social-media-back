@@ -8,6 +8,7 @@ export class DeletePostService {
         if(!post){
             throw new CustomError("no post", 404)
         }
+        
         // verificar que el post haya sido creado por el mismo usuario
         if(post.userId !== userId){
             throw new CustomError("you can't delete this", 400)

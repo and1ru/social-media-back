@@ -6,15 +6,14 @@ export class PostsByUserController {
     postByUser = async (req:Request, res:Response, next:NextFunction) => {
         const {userId} = req.params
         if(!userId || typeof userId !== "string"){
+            // agregar un mensaje
             return 
         }
 
         try {
             const result = await this.service.postByUser(userId)
-
-            res.status(200).json({message:"se obtuvieron los post por el user id", result})
+            return res.status(200).json({message:"se obtuvieron los post por el user id", result})
         } catch (error) {
-            console.error(error)
             next(error)
         }
     }
