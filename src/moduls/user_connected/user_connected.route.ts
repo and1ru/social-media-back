@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { UsersConnectedController } from "./user_connected.controller";
 import { UsersConnectedService } from "./user_connected.service";
-import { AuthToken } from "../middlewares/authToken";
+import { AuthToken } from "../../middlewares/authToken";
 
 const service = new UsersConnectedService()
 const controller = new UsersConnectedController(service)

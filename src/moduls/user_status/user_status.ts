@@ -1,5 +1,5 @@
 import type { Server } from "socket.io";
-import { connectedUsers } from "../helpers/connected-users";
+import { connectedUsers } from "../../helpers/connected-users";
 
 export const userStatus = (io: Server) => {
     // primer tipado es la clave y el segundo es el valor

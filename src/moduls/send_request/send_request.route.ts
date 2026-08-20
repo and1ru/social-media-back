@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { SendRequestController } from "./send_request.controller";
 import { SendRequestService } from "./send_request.service";
-import { AuthToken } from "../middlewares/authToken";
+import { AuthToken } from "../../middlewares/authToken";
 
 const service = new SendRequestService()
 const controller = new SendRequestController(service)

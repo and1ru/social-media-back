@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { postByIdRepository } from "./get_post_by_id.repository"
 
 export class PostByIdService {

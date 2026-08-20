@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { commetPostRepository, findPost } from "./comment_post.repository"
 
 export class CommentPostService {

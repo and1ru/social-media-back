@@ -1,5 +1,5 @@
 import type { Server } from "socket.io";
-import { myDb } from "../helpers/pool.ts";
+import { myDb } from "../../helpers/pool.ts";
 
 interface Chat {
   _id: string;

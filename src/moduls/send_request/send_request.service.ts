@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb"
-import { CustomError } from "../helpers/custom-error.ts"
+import { CustomError } from "../../helpers/custom-error.ts"
 import { sendRequest, verifyRelation, verifyRequestRepository } from "./send_request.repository.ts"
 
 export class SendRequestService {

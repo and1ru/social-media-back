@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { deletePostRepository, getPost } from "./delete_post.repository"
 
 export class DeletePostService {

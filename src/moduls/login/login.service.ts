@@ -1,8 +1,8 @@
 import { findUser } from "./login.repository.ts";
 import { type loginType } from "./login.schema.ts";
-import { compareHash } from "../helpers/compareHash.ts";
-import { CustomError } from "../helpers/custom-error.ts";
-import { generarToken } from "../helpers/generarToken.ts";
+import { compareHash } from "../../helpers/compareHash.ts";
+import { CustomError } from "../../helpers/custom-error.ts";
+import { generarToken } from "../../helpers/generarToken.ts";
 
 export class LoginService {
   login = async (user: loginType) => {

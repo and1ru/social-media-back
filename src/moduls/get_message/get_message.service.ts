@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb"
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { getMessagesRepository, verifyRelation } from "./get_message.repository.ts"
 
 export class GetMessagesService {

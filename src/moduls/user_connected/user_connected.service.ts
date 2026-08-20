@@ -1,4 +1,4 @@
-import { connectedUsers } from "../helpers/connected-users"
+import { connectedUsers } from "../../helpers/connected-users"
 
 export class UsersConnectedService {
     usersConnected = (userId:string):boolean => {

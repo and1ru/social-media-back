@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { GetMessagesController } from "./get_message.controller.ts";
 import { GetMessagesService } from "./get_message.service.ts";
-import { AuthToken } from "../middlewares/authToken.ts";
+import { AuthToken } from "../../middlewares/authToken.ts";
 
 const routes = Router()
 

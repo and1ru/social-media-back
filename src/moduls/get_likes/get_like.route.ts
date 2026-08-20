@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { GetLikesController } from "./get_like.controller";
 import { GetLikesService } from "./get_like.service";
-import { AuthToken } from "../middlewares/authToken";
+import { AuthToken } from "../../middlewares/authToken";
 
 const service = new GetLikesService();
 const controller = new GetLikesController(service);

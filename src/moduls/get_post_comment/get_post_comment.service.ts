@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { getComments, countComments } from "./get_post_comment.repository"
 
 export class GetPostCommentsService {

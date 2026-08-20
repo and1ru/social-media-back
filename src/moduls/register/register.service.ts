@@ -1,5 +1,5 @@
-import { CustomError } from "../helpers/custom-error.ts";
-import { hashPassword } from "../helpers/hashPassword.ts";
+import { CustomError } from "../../helpers/custom-error.ts";
+import { hashPassword } from "../../helpers/hashPassword.ts";
 import { registerRepository, verifyExistEmail } from "./register.repository.ts";
 import type { registerType } from "./register.schema.ts";
 

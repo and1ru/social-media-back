@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { postByUserRepository, verifyUser } from "./posts_by_user.repository"
 
 export class PostsByUserService {

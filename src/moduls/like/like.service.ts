@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error"
+import { CustomError } from "../../helpers/custom-error"
 import { deleteLikeRepository, findLikeRepository, findPost, likeRepository, countLikesPosts } from "./like.repository"
 
 export class LikesService {

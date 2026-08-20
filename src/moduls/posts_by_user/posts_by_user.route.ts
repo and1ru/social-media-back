@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { PostsByUserController } from "./posts_by_user.controller";
 import { PostsByUserService } from "./posts_by_user.service";
-import { AuthToken } from "../middlewares/authToken";
+import { AuthToken } from "../../middlewares/authToken";
 
 const service = new PostsByUserService()
 const controller = new PostsByUserController(service)

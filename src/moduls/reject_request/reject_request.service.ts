@@ -1,4 +1,4 @@
-import { CustomError } from "../helpers/custom-error.ts";
+import { CustomError } from "../../helpers/custom-error.ts";
 import { findRequest, rejectRequest } from "./reject_request.repository.ts"
 
 export class RejectRequestService {
