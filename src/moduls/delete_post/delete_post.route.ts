@@ -8,6 +8,6 @@ const controller = new DeletePostController(service)
 
 const route = Router()
 
-route.delete("post/:postId", AuthToken, controller.deletePost)
+route.delete("/post/:postId", AuthToken, controller.deletePost)
 
 export default route

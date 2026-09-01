@@ -8,7 +8,7 @@ export class DeletePostController {
         const { postId } = req.params
         if(!postId || typeof postId !== "string"){
             // agregar un mensaje 
-            return
+            return res.status(400).json({message:"", success:false})
         }
         try {
             await this.service.deletePost(postId, id)

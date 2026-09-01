@@ -4,7 +4,7 @@ interface PostI{
   content:string;
   userId:string;
   name:string;
-  fecha:Date
+  fecha:string
 }
 
 export const createPost = async (post: PostI) => {

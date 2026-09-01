@@ -16,7 +16,6 @@ export class GetLikesController {
 
       return res.status(200).json({ message: "se obtuvieron los likes", liked, likes });
     } catch (error) {
-      console.error(error);
       next(error);
     }
   };

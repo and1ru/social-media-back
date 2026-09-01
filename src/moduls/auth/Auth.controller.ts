@@ -6,21 +6,14 @@ import { envs } from "../../helpers/envs.ts"
 // codigo que no deberia ir
 export class AuthController {
     auth = (req: Request, res: Response, next: NextFunction) => {
-        const token = req.cookies.token
-        if (!token) {
-            throw new CustomError("no hay token", 400)
-        }
+        const name = req.user.name
+        const userId = req.user.id
 
         try {
-            const verifyToken = jwt.verify(token, envs.jwt_secret)
-
-            if (!verifyToken) {
-                throw new CustomError("token no valido", 400)
-            }
-
-            return res.status(200).json({ success: true, message: "token valido" })
+            const result = { name, userId }
+            return res.status(200).json({ success: true, message: "authenticated", result })
         } catch (error) {
-            next(error)
+            return next(error)
         }
 
     }

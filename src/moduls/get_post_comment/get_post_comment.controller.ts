@@ -17,7 +17,6 @@ export class GetPostCommentsController {
 
             return res.status(200).json({message:"se obtubieron los comentarios", commentCount, comments })
         } catch (error) {
-            console.log(error)
             next(error)
         }
     }

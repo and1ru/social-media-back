@@ -11,7 +11,6 @@ export class GetPostCommentsService {
         const result = {
             commentCount,
             comments
-
         }
 
         return result

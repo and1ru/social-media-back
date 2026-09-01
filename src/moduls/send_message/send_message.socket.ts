@@ -9,33 +9,28 @@ interface Chat {
 
 export function chatFriend(io: Server) {
   io.on("connection", (socket) => {
-    console.log(`se conecto: ${socket.data.userId}`);
 
     socket.on("join-chat", (data) => {
       // debe de agregar una opcion para verificar que en realidad son amigos
       const room = [socket.data.userId, data.friendId].sort().join("-")
-      console.log(room)
       socket.join(room)
     })
 
     socket.on("leave-room", (data) => {
       const room = [socket.data.userId, data.friendId].sort().join("-")
       socket.leave(room)
-      console.log(`Socket ${socket.data.userId} salió de la sala: ${room}`);
     })
     
     socket.on("send-message", async (data) => {
+      const date = new Date()
+
       const room = [socket.data.userId, data.friendId].sort().join("-")
 
       const newMessage = {
         senderId: socket.data.userId,
         message: data.message,
-        createAt: new Date()
+        createAt: `${date.getHours()}:${date.getMinutes()}`
       }
-
-      console.log(room)
-      console.log(newMessage)
-      console.log(socket.rooms)
 
       // este mensaje tiene que ser guardado en la base de datos
       const chat = await myDb.collection<Chat>("chats").findOne({_id: room})
@@ -51,7 +46,6 @@ export function chatFriend(io: Server) {
     })
 
     socket.on("disconnect", () => {
-      console.log("se desconecto el usuario");
     });
   });
 }

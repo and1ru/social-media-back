@@ -13,7 +13,7 @@ export class CreatePostController {
     }
     try {
       await this.service.post(data.data.content, id, name);
-      return res.status(201).json({ message: "post creado" });
+      return res.status(201).json({ message: "post creado", success:true });
     } catch (error) {
       next(error);
     }

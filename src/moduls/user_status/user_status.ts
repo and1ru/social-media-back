@@ -8,8 +8,6 @@ export const userStatus = (io: Server) => {
         const userId = socket.data.userId
         connectedUsers.set(userId, socket.id);
 
-        console.log(connectedUsers)
-
         io.emit("user_status", {
             userId,
             connected: true
