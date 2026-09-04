@@ -3,7 +3,7 @@ import { CustomError } from "../../helpers/custom-error.ts"
 import { sendRequest, verifyRelation, verifyRequestRepository } from "./send_request.repository.ts"
 
 export class SendRequestService {
-    sendRequest = async (receiver:string, sender:string) => {
+    sendRequest = async (receiver:string, sender:string, userName:string) => {
 
         // verificar que no se envie la solicitud asi mismo
         if(receiver === sender){
@@ -42,6 +42,7 @@ export class SendRequestService {
         }
 
         const newRequest = {
+            userName,
             receiver,
             sender,
             createdAt: new Date(),

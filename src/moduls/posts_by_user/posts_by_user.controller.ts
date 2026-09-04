@@ -7,7 +7,7 @@ export class PostsByUserController {
         const {userId} = req.params
         if(!userId || typeof userId !== "string"){
             // agregar un mensaje
-            return 
+            return res.status(400).json({message:"error with userId", success:false})
         }
 
         try {

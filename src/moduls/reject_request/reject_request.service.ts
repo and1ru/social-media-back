@@ -6,12 +6,9 @@ export class RejectRequestService {
         // verificar que exista la peticion
         const verifyRequest = await findRequest(id)
         if(!verifyRequest){
-            throw new CustomError("no hay una peticion de amistad con ese id",400);
+            throw new CustomError("no hay una peticion de amistad con ese id",404);
         }
-        // rechazar la peticion
-        const result = await rejectRequest(id)
-        // eliminar la peticion
-
-        return result
+        // rechazar y eliminar la peticion
+        await rejectRequest(id)
     }
 }

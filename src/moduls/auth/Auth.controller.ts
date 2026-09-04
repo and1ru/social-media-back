@@ -1,9 +1,5 @@
 import type { NextFunction, Request, Response } from "express"
-import { CustomError } from "../../helpers/custom-error.ts"
-import jwt from 'jsonwebtoken'
-import { envs } from "../../helpers/envs.ts"
 
-// codigo que no deberia ir
 export class AuthController {
     auth = (req: Request, res: Response, next: NextFunction) => {
         const name = req.user.name
@@ -15,6 +11,5 @@ export class AuthController {
         } catch (error) {
             return next(error)
         }
-
     }
 }

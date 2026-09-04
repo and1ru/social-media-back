@@ -7,13 +7,12 @@ export class GetLikesController {
     const { id } = req.user;
     const { postId } = req.params;
     if (!postId || typeof postId !== "string") {
-      return;
+      return res.status(400).json({message:"error with postId", success:false})
     }
 
     try {
       const result = await this.service.likes(postId, id);
       const { liked, likes } = result;
-
       return res.status(200).json({ message: "se obtuvieron los likes", liked, likes });
     } catch (error) {
       next(error);

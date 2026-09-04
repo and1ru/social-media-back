@@ -24,5 +24,6 @@ export const errorMiddleware = (err: Error | CustomError, req: Request, res: Res
     }
 
     // error de servidor
+    console.error(err)
     return res.status(500).json({ success: false, message: "error del servidor" })
 }

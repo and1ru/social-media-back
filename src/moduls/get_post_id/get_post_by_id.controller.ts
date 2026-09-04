@@ -7,7 +7,7 @@ export class PostByIdController {
     postById = async (req:Request, res:Response, next:NextFunction) => {
         const { postId } = req.params
         if(!postId || typeof postId !== "string"){
-            return
+            return res.status(400).json({message:"error with postId", success:false})
         }
         try {
             const result = await this.service.postById(postId)

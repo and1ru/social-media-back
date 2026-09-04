@@ -18,6 +18,6 @@ export class RegisterService {
             friends: []
         }
         
-        return registerRepository(newUser)
+        await registerRepository(newUser)
     }
 }

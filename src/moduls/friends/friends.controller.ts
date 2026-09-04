@@ -7,10 +7,10 @@ export class FriendsController {
     constructor(private service:FriendsService){}
 
     friends = async (req:Request, res:Response, next:NextFunction) => {
-        const user = req.user
+        const userId = req.user.id
 
         try {
-            const result = await this.service.friends(user.id)
+            const result = await this.service.friends(userId)
             return res.status(200).json({message:"se obtuvieron los amigos", result})
         } catch (error) {
             next(error)

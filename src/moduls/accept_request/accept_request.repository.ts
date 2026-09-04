@@ -5,25 +5,13 @@ import { ObjectId } from "mongodb"
 // deberia ir en el service
 
 export const acceptRequest = async (id:string) => {
-    const request = await myDb.collection("friend_requests").findOne({_id: new ObjectId(id)})
-    if(!request){
-        throw new Error("no hay peticion con ese id")
-    }
+    return await myDb.collection("friend_requests").findOne({_id: new ObjectId(id)})
+}
 
-    // si se obtuviera normalmente seria solo un string y el id no es un string es un ObjectId
-    const senderId = new ObjectId(request.sender)
-    const receiverId = new ObjectId(request.receiver)
+export const addFriends = async (receiverId:ObjectId, senderId:ObjectId, id:string) => {
+    await myDb.collection("users").updateOne({_id: receiverId}, {$addToSet: { friends: senderId}})
 
-    // agregar a quien recive la solicitud a los amigos
-    await myDb.collection("users").updateOne({_id: receiverId}, {
-        $addToSet: { friends: senderId}
-    })
-
-    // agregar a quien envio la solicitud a los amigos
-    await myDb.collection("users").updateOne({_id: senderId}, {
-        $addToSet: { friends: receiverId}
-    })
+    await myDb.collection("users").updateOne({_id: senderId}, {$addToSet: { friends: receiverId}})
 
     await myDb.collection("friend_requests").deleteOne({_id: new ObjectId(id)})
-    return
 }

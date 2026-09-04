@@ -4,6 +4,7 @@ import type { CommentPostService } from "./comment_post.service";
 
 export class CommentPostController {
     constructor(private service:CommentPostService){}
+
     commetPost = async (req:Request, res:Response, next:NextFunction) => {
         const data = commentPostSchema.safeParse(req.body)
         const id = req.user.id
@@ -12,6 +13,7 @@ export class CommentPostController {
         if(!data.success){
             return next(data.error)
         }
+        
         try {
             const { comment, postId } = data.data
             await this.service.commetPost(id, comment, postId, userName)

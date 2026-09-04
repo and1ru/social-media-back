@@ -1,7 +1,6 @@
 import { Server } from "socket.io";
 import { chatFriend } from "./moduls/send_message/send_message.socket.ts";
 import { AuthTokenSocket } from "./middlewares/authToken.socket.ts";
-import { userTyping } from './moduls/user_typing/user_typing.ts'
 import { userStatus } from "./moduls/user_status/user_status.ts";
 
 // crea una funcion que reciba todos los sockets
@@ -10,5 +9,4 @@ export function socketRoutes(io:Server) {
   AuthTokenSocket(io)
   chatFriend(io)
   userStatus(io)
-  userTyping(io)
 }

@@ -10,21 +10,16 @@ export class LoginController {
     if (!data.success) return next(data.error)
 
     try {
-      const result = await this.service.login(data.data);
-
-      const { name, token, userId } = result
+      const token = await this.service.login(data.data);
       
-      res.cookie(
-        "token",
-        token,
-        {
-          maxAge: 1000 * 60 * 60, // 1h
+      res.cookie("token",token,{
+          maxAge: 1000 * 60 * 60,
           httpOnly: true,
           secure: false
         }
       )
 
-      return res.status(200).json({ name, userId });
+      return res.status(200).json({message:"login", success:true});
     } catch (error) {
       next(error)
     }

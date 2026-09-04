@@ -6,6 +6,5 @@ export const commetPostRepository = async (postId:string, userId:string, comment
 }
 
 export const findPost = async (postId:string) => {
-    const result = await myDb.collection("posts").findOne({_id: new ObjectId(postId) })
-    return result
+    return await myDb.collection("posts").findOne({_id: new ObjectId(postId)})
 }

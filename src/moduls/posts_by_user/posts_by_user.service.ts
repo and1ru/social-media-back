@@ -9,8 +9,6 @@ export class PostsByUserService {
             return new CustomError("no user", 404)
         }
         
-        const post = await postByUserRepository(userId)
-
-        return post
+        return await postByUserRepository(userId)
     }
 }

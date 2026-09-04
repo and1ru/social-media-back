@@ -8,7 +8,7 @@ export class LikesController {
         const { postId } = req.params
         if(!postId || typeof postId !== "string"){
             // agregar un mensaje
-            return
+            return res.status(400).json({message:"error with postId", success:false})
         }
         try {
             const result = await this.service.likes(postId, id)
