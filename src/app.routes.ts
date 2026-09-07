@@ -1,6 +1,5 @@
 // src/app.routes.ts
 import { Router } from "express";
-import { LogOutController } from "./moduls/logout/logOut.controller.ts";
 
 import acceptRequest from "./moduls/accept_request/accept_request.route.ts";
 import createPost from './moduls/create_post/create_post.route.ts'
@@ -22,15 +21,11 @@ import postById from './moduls/get_post_id/get_post_by_id.route.ts'
 import like from './moduls/like/like.route.ts'
 import getLikes from './moduls/get_likes/get_like.route.ts'
 import status from './moduls/user_connected/user_connected.route.ts'
+import logOut from './moduls/logout/logOut.route.ts'
 
 const routes = Router();
 
-// Instancias de los controladores
-const logOut = new LogOutController();
-
-// Definición de rutas
-routes.post("/log-out", logOut.logOut);
-
+routes.use(logOut)
 routes.use(acceptRequest);
 routes.use(createPost)
 routes.use(deletePost)

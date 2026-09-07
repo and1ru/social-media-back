@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken'
 import { CustomError } from "../helpers/custom-error.ts"
 import { ZodError } from "zod"
 
-export const errorMiddleware = (err: Error | CustomError, req: Request, res: Response, next: NextFunction) => {
+export const errorMiddleware = (err: Error | CustomError, _req: Request, res: Response, _next: NextFunction) => {
     // otros errores
     if (err instanceof CustomError) {
         return res.status(err.status).json({ success: false, message: err.message })
