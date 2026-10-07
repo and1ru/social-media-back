@@ -9,11 +9,12 @@ export class UsersConnectedController {
         if(!userId || typeof userId !== "string"){
             return res.status(400).json({message:"debe tener un id"})
         }
+
         try {
             const result = this.service.usersConnected(userId)
             return res.status(200).json({message:"got status", result})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

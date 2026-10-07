@@ -12,7 +12,7 @@ export class LoginController {
     try {
       const token = await this.service.login(data.data);
       
-      res.cookie("token",token,{
+      res.cookie("token", token, {
           maxAge: 1000 * 60 * 60,
           httpOnly: true,
           secure: false

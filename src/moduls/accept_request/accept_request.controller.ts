@@ -9,12 +9,13 @@ export class AcceptRequestController {
         if(!data.success){
             return next(data.error)
         }
+
         try {
             const { id } = data.data
             await this.service.acceptRequest(id)
-            return res.status(200).json({message:"solicitud aceptada"})
+            return res.status(200).json({message:"request accepted"})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

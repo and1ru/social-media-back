@@ -16,10 +16,10 @@ export class SendRequestController {
         
         try {
             const { receiver } = data.data
-            const result = await this.service.sendRequest(receiver, userId, userName)
-            return res.status(200).json({message:"se envio la solicitud", result})
+            await this.service.sendRequest(receiver, userId, userName)
+            return res.status(201).json({ message:"friend request sended", success:true })
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

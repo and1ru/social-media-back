@@ -4,7 +4,6 @@ import { CreatePostService } from "./create_post.service.ts";
 
 export class CreatePostController {
   constructor(private service:CreatePostService){}
-  
   post = async (req: Request, res: Response, next: NextFunction) => {
     const data = postSchema.safeParse(req.body);
     const { id, name } = req.user
@@ -14,10 +13,10 @@ export class CreatePostController {
     }
 
     try {
-      await this.service.post(data.data.content, id, name);
-      return res.status(201).json({ message: "post creado", success:true });
+      await this.service.createPost(data.data.content, id, name);
+      return res.status(201).json({ message: "post created", success:true });
     } catch (error) {
-      next(error);
+      return next(error);
     }
   };
 }

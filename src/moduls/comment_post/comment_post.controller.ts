@@ -4,10 +4,10 @@ import type { CommentPostService } from "./comment_post.service";
 
 export class CommentPostController {
     constructor(private service:CommentPostService){}
-
+    
     commetPost = async (req:Request, res:Response, next:NextFunction) => {
         const data = commentPostSchema.safeParse(req.body)
-        const id = req.user.id
+        const userId = req.user.id
         const userName = req.user.name
 
         if(!data.success){
@@ -16,11 +16,11 @@ export class CommentPostController {
         
         try {
             const { comment, postId } = data.data
-            await this.service.commetPost(id, comment, postId, userName)
+            await this.service.commetPost(userId, comment, postId, userName)
 
-            return res.status(201).json({message:"el comentario fue enviado"})
+            return res.status(201).json({message:"post commented"})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

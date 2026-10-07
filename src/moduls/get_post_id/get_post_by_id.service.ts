@@ -1,15 +1,15 @@
-import { CustomError } from "../../helpers/custom-error"
-import { postByIdRepository } from "./get_post_by_id.repository"
+import { CustomError } from "../../helpers/customError";
+import { findPost } from "../../shared/repositories/findPostById.repository";
 
 export class PostByIdService {
-    postById = async (postId:string) => {
-        // verificar que el post exista
-        const post = await postByIdRepository(postId)
+  postById = async (postId: string) => {
+    // verificar que el post exista
+    const post = await findPost(postId);
 
-        if(!post){
-            throw new CustomError("no post", 404)
-        }
-
-        return post
+    if (!post) {
+      throw new CustomError("no post", 404);
     }
+
+    return post;
+  };
 }

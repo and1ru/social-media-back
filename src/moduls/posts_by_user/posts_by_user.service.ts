@@ -1,14 +1,15 @@
-import { CustomError } from "../../helpers/custom-error"
-import { postByUserRepository, verifyUser } from "./posts_by_user.repository"
+import { CustomError } from "../../helpers/customError";
+import { findUser } from "../../shared/repositories/findUser.repository";
+import { postByUserRepository } from "./posts_by_user.repository";
 
 export class PostsByUserService {
-    // verificar que el usuario exista
-    postByUser = async (userId:string) => {
-        const user = await verifyUser(userId)
-        if(!user){
-            return new CustomError("no user", 404)
-        }
-        
-        return await postByUserRepository(userId)
+  // verificar que el usuario exista
+  postByUser = async (userId: string) => {
+    const user = await findUser(userId);
+    if (!user) {
+      return new CustomError("no user", 404);
     }
+
+    return await postByUserRepository(userId);
+  };
 }

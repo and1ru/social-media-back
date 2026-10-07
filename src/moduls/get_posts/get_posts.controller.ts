@@ -6,9 +6,9 @@ export class GetPostsController{
     getPost = async (_req:Request,res:Response, next:NextFunction) => {
         try {
             const result = await this.service.getPost()
-            return res.status(200).json({message:"se obtuvieron los posts", result})
+            return res.status(200).json({message:"got posts", result})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

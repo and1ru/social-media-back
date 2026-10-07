@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
 import { routes } from './src/app.routes.ts'
-import { errorMiddleware } from './src/middlewares/error.middleware.ts'
+import { errorMiddleware } from './src/middlewares/errorMiddleware.ts'
 import { Server } from "socket.io";
 import { createServer } from 'http'
 import { socketRoutes } from './src/socket.routes.ts'
@@ -26,3 +26,5 @@ app.use(errorMiddleware);
 httpServer.listen(3000, () => {
     console.log("Servidor escuchando en el puerto 3000")
 })
+
+// revisar logout.controller.ts

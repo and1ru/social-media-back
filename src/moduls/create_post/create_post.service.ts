@@ -1,11 +1,11 @@
 import { createPost } from "./create_post.repository.ts";
 
 export class CreatePostService {
-  post = async (content: string, userId:string, name:string) => {
-    const fecha = new Date();
+  createPost = async (content: string, userId:string, name:string) => {
+    const date = new Date();
     
-    const dia = fecha.getDate()
-    const mes = fecha.getMonth()
+    const dia = date.getDate()
+    const mes = date.getMonth()
 
     const post = {
       content,

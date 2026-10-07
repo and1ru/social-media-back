@@ -9,11 +9,12 @@ export class PostByIdController {
         if(!postId || typeof postId !== "string"){
             return res.status(400).json({message:"error with postId", success:false})
         }
+
         try {
             const result = await this.service.postById(postId)
-            return res.status(200).json({message:"se obtuvo un post", result})
+            return res.status(200).json({message:"got post", result})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

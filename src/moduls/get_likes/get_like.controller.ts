@@ -4,18 +4,18 @@ import type { GetLikesService } from "./get_like.service";
 export class GetLikesController {
   constructor(private service: GetLikesService) {}
   likes = async (req: Request, res: Response, next: NextFunction) => {
-    const { id } = req.user;
+    const userId = req.user.id;
     const { postId } = req.params;
+
     if (!postId || typeof postId !== "string") {
       return res.status(400).json({message:"error with postId", success:false})
     }
 
     try {
-      const result = await this.service.likes(postId, id);
-      const { liked, likes } = result;
-      return res.status(200).json({ message: "se obtuvieron los likes", liked, likes });
+      const { liked, likes } = await this.service.likes(postId, userId);
+      return res.status(200).json({ message: "got likes", liked, likes });
     } catch (error) {
-      next(error);
+      return next(error);
     }
   };
 }

@@ -7,22 +7,17 @@ export class FindUsersController {
     
     findUsers = async (req:Request, res:Response, next:NextFunction) => {
         const data = findUsersSchema.safeParse(req.params)
-        const { id } = req.user
+        const userId = req.user.id
 
         if(!data.success){
             return next(data.error)
         }
 
-        if(!id){
-            return res.status(400).json({message:"problem with the id", success:false})
-        }
-
         try {
-            const result = await this.service.findUsers(data.data.name, id)
-            return res.status(200).json({message:"se obtuvieron los usuarios con el nombre", success:true, result})
+            const result = await this.service.findUsers(data.data.name, userId)
+            return res.status(200).json({message:"got users by name", success:true, result})
         } catch (error) {
-            console.log(error)
-            next(error)
+            return next(error)
         }
     }
 }

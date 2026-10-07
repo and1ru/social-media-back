@@ -10,12 +10,12 @@ export class RegisterController {
         if(!data.success){
             return next(data.error)
         }
+
         try {
-            const user = data.data
-            await this.service.register(user)
-            return res.status(201).json({success:true, message:'usuario fue creado'})
+            await this.service.register(data.data)
+            return res.status(201).json({success:true, message:'usuario created'})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

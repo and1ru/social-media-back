@@ -7,9 +7,9 @@ export class GetRequestsController {
         const userId = req.user.id
         try {
             const result = await this.service.getRequest(userId)
-            return res.status(200).json({message:"se obtuvieron todos las requests", result})
+            return res.status(200).json({message:"got friend requests", result})
         } catch (error) {
-            next(error)
+            return next(error)
         }
     }
 }

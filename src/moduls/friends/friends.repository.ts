@@ -1,15 +1,14 @@
 import { ObjectId } from "mongodb"
 import { myDb } from "../../helpers/pool.ts"
 
-export const friends = async (id:string) => {
+export const findUser = async (id:string) => {
     return await myDb.collection("users").findOne({_id: new ObjectId(id)})
 }
 
-export const findFriend = async (id:string) => {
-    const result = await myDb.collection("users").findOne({_id: new ObjectId(id)})
-    if(!result){
-        throw new Error("no hay un usuario con ese id");
-    }
-
-    return result
+export const findFriends = async (friendsId:string[]) => {
+    return await myDb.collection("users").find({
+        _id:{
+            $in: friendsId.map(id => new ObjectId(id))
+        }
+    }).toArray()
 }

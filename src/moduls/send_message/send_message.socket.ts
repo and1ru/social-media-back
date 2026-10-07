@@ -9,7 +9,6 @@ interface Chat {
 
 export function chatFriend(io: Server) {
   io.on("connection", (socket) => {
-
     socket.on("join-chat", (data) => {
       // debe de agregar una opcion para verificar que en realidad son amigos
       const room = [socket.data.userId, data.friendId].sort().join("-")
@@ -45,7 +44,6 @@ export function chatFriend(io: Server) {
       // socket.emit("receive-message", newMessage)
     })
 
-    socket.on("disconnect", () => {
-    });
+    socket.on("disconnect", () => {});
   });
 }

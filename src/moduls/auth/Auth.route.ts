@@ -6,6 +6,6 @@ const controller = new AuthController()
 
 const route = Router()
 
-route.get("/auth/me", AuthToken, controller.auth);
+route.get("/me", AuthToken, controller.auth);
 
 export default route
