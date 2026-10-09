@@ -10,7 +10,7 @@ interface payload {
 export const AuthToken = (req: Request, res: Response, next: NextFunction) => {
     const token = req.cookies.token
     if (!token) {
-        return res.status(401).json({ message: 'no teken' })
+        return res.status(401).json({ message: 'no token', success:false })
     }
     
     try {

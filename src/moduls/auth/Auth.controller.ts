@@ -1,15 +1,10 @@
-import type { NextFunction, Request, Response } from "express"
+import type { Request, Response } from "express"
 
 export class AuthController {
-    auth = (req: Request, res: Response, next: NextFunction) => {
-        const name = req.user.name
+    auth = (req: Request, res: Response) => {
+        const name = req.user.name.trim()
         const userId = req.user.id
-
-        try {
-            const result = { name, userId }
-            return res.status(200).json({ success: true, message: "authenticated", result })
-        } catch (error) {
-            return next(error)
-        }
+        const result = { name, userId }
+        return res.status(200).json({ success: true, message: "authenticated", result })
     }
 }

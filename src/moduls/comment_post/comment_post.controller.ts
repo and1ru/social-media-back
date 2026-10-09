@@ -18,7 +18,7 @@ export class CommentPostController {
             const { comment, postId } = data.data
             await this.service.commetPost(userId, comment, postId, userName)
 
-            return res.status(201).json({message:"post commented"})
+            return res.status(201).json({ message:"post commented", success:true })
         } catch (error) {
             return next(error)
         }

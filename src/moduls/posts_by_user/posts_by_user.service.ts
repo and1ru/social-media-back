@@ -1,5 +1,5 @@
 import { CustomError } from "../../helpers/customError";
-import { findUser } from "../../shared/repositories/findUser.repository";
+import { findUser } from "../friends/friends.repository";
 import { postByUserRepository } from "./posts_by_user.repository";
 
 export class PostsByUserService {

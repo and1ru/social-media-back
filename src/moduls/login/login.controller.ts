@@ -10,7 +10,8 @@ export class LoginController {
     if (!data.success) return next(data.error)
 
     try {
-      const token = await this.service.login(data.data);
+      const { email, password } = data.data
+      const token = await this.service.login(email, password);
       
       res.cookie("token", token, {
           maxAge: 1000 * 60 * 60,

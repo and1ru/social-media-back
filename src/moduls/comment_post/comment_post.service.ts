@@ -1,20 +1,15 @@
 import { CustomError } from "../../helpers/customError";
 import { findPost } from "../../shared/repositories/findPostById.repository";
-import { commetPostRepository } from "./comment_post.repository";
+import { commentPostRepository } from "./comment_post.repository";
 
 export class CommentPostService {
-  commetPost = async (
-    userId: string,
-    comment: string,
-    postId: string,
-    userName: string,
-  ) => {
+  commetPost = async ( userId: string,comment: string,postId: string,userName: string,) => {
     // verify that the post exists
     const post = await findPost(postId);
     if (!post) {
-      return new CustomError("no post", 404);
+      throw new CustomError("no post", 404);
     }
 
-    await commetPostRepository(postId, userId, comment, userName);
+    await commentPostRepository(postId, userId, comment, userName);
   };
 }

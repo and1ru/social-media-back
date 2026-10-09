@@ -1,5 +1,5 @@
 import { ObjectId } from 'mongodb'
-import { myDb } from '../../helpers/pool.ts'
+import { myDb } from '../../../helpers/pool';
 
 export interface ResultUsers {
     _id:ObjectId
@@ -14,5 +14,5 @@ export const findUserById = async (userId:string) => {
 }
 
 export const findUserByEmail = async (email:string) => {
-    return await myDb.collection("users").findOne({email})
+    return await myDb.collection<ResultUsers>("users").findOne({email})
 }

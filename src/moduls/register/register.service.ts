@@ -1,6 +1,6 @@
 import { CustomError } from "../../helpers/customError.ts";
 import { hashPassword } from "../../helpers/hashPassword.ts";
-import { findUserByEmail } from "../../shared/repositories/findUser.repository.ts";
+import { findUserByEmail } from "../../shared/repositories/findUser/findUser.repository.ts";
 import { registerRepository } from "./register.repository.ts";
 import type { registerType } from "./register.schema.ts";
 

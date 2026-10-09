@@ -1,6 +1,6 @@
 import { CustomError } from "../../helpers/customError.ts";
 import { findRequest } from "../../shared/repositories/findRequest.repository.ts";
-import { findUserById } from "../../shared/repositories/findUser.repository.ts";
+import { findUserById } from "../../shared/repositories/findUser/findUser.repository.ts";
 import { sendRequest } from "./send_request.repository.ts";
 
 export class SendRequestService {

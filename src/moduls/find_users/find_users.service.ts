@@ -1,6 +1,7 @@
 import { CustomError } from "../../helpers/customError.ts";
-import { findUserById } from "../../shared/repositories/findUser.repository.ts";
-import { findRequest, findUsers } from "./find_users.repository.ts";
+import { findRequest } from "../../shared/repositories/findRequest.repository.ts";
+import { findUserById } from "../../shared/repositories/findUser/findUser.repository.ts";
+import { findUsers } from "./find_users.repository.ts";
 
 export class FindUsersService {
   findUsers = async (name: string, userId: string) => {

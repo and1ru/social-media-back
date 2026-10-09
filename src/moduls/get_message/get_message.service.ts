@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { CustomError } from "../../helpers/customError.ts";
 import { getMessagesRepository } from "./get_message.repository.ts";
-import { findUser } from "../../shared/repositories/findUser.repository.ts";
+import { findUser } from "../friends/friends.repository.ts";
 
 export class GetMessagesService {
   getMessage = async (userId: string, friendId: string) => {

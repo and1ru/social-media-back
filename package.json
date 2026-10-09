@@ -5,10 +5,13 @@
   "private": true,
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/supertest": "^7.2.1",
+    "supertest": "^7.3.1",
     "tsx": "^4.23.0"
   },
   "scripts": {
-    "dev": "tsx index.ts"
+    "dev": "tsx index.ts",
+    "test": "vitest run"
   },
   "peerDependencies": {
     "typescript": "^5"
