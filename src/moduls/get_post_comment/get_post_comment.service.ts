@@ -5,7 +5,7 @@ import { getComments, countComments } from "./get_post_comment.repository";
 export class GetPostCommentsService {
   getPostComments = async (postId: string) => {
     // verificar si existe el post
-    const post = findPost(postId);
+    const post = await findPost(postId);
     if (!post) {
       throw new CustomError("no post", 404);
     }

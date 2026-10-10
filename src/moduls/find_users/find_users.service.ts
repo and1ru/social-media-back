@@ -44,10 +44,10 @@ export class FindUsersService {
           }
         }
       }
-
       // inserta el usuario y el estado
       result.push({ id: user._id.toString(), name: user.name, relation });
     }
+
     return result;
   };
 }

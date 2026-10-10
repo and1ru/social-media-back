@@ -8,7 +8,7 @@ export class FriendsController {
 
         try {
             const result = await this.service.friends(userId)
-            return res.status(200).json({message:"got friends", result})
+            return res.status(200).json({message:"got friends", result, success:true})
         } catch (error) {
             return next(error)
         }

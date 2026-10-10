@@ -14,7 +14,7 @@ export class GetPostCommentsController {
         try {
             const result = await this.service.getPostComments(data.data.postId)
             const { commentCount, comments} = result
-            return res.status(200).json({message:"se obtubieron los comentarios", commentCount, comments })
+            return res.status(200).json({ message:"se obtubieron los comentarios", commentCount, comments, success:true })
         } catch (error) {
             return next(error)
         }

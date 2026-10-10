@@ -14,7 +14,7 @@ export class GetMessagesController {
 
         try {
             const result = await this.service.getMessage(userId, friendId)
-            return res.status(200).json({message:"got messages", result})
+            return res.status(200).json({message:"got messages", result, success:false})
         } catch (error) {
             return next(error)
         }

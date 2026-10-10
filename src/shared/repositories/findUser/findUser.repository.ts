@@ -6,7 +6,7 @@ export interface ResultUsers {
     name:string;
     email:string;
     password:string;
-    friends:ObjectId[]
+    friends: string[]
 }
 
 export const findUserById = async (userId:string) => {

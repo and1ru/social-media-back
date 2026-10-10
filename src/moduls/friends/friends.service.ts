@@ -1,10 +1,11 @@
 import { CustomError } from "../../helpers/customError.ts";
-import { findFriends, findUser } from "./friends.repository.ts";
+import { findUserById } from "../../shared/repositories/findUser/findUser.repository.ts";
+import { findFriends } from "./friends.repository.ts";
 
 export class FriendsService {
   friends = async (id: string) => {
     // obtiene el user
-    const user = await findUser(id);
+    const user = await findUserById(id);
     if (!user) {
       throw new CustomError("no user", 404);
     }

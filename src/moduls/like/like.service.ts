@@ -1,11 +1,8 @@
 import { CustomError } from "../../helpers/customError";
+import { countLikesPosts } from "../../shared/repositories/countLikesPosts/countLikesPosts.repository";
+import { findLikeRepository } from "../../shared/repositories/findLikeRepository/findLikeRepository.repository";
 import { findPost } from "../../shared/repositories/findPostById.repository";
-import {
-  deleteLikeRepository,
-  findLikeRepository,
-  likeRepository,
-  countLikesPosts,
-} from "./like.repository";
+import {deleteLikeRepository,likeRepository} from "./like.repository";
 
 export class LikesService {
   likes = async (postId: string, userId: string) => {

@@ -12,7 +12,7 @@ export class DeletePostService {
 
     // verificar que el post haya sido creado por el mismo usuario
     if (post.userId !== userId) {
-      throw new CustomError("you can't delete this", 400);
+      throw new CustomError("you can't delete this post", 400);
     }
 
     await deletePostRepository(postId);
