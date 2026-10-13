@@ -1,4 +1,4 @@
-import { describe, expect, vi, it, beforeEach, afterEach } from "vitest";
+import { describe, expect, it, beforeEach, afterEach } from "vitest";
 import Request from 'supertest'
 import { app } from "../../../app";
 import { generateTokenTest } from "../../../helpers/generateTokenTest";

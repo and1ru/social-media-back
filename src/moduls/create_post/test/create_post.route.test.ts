@@ -4,7 +4,7 @@ import { app } from '../../../app'
 import { generateTokenTest } from '../../../helpers/generateTokenTest'
 import { tokenTest } from '../../../helpers/tokenTest'
 
-describe("Controller POST /create-post", () => {
+describe("Route POST /create-post", () => {
     it("post created", async () => {
         const response = await request(app)
             .post("/create-post")

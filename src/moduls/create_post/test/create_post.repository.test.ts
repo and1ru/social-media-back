@@ -1,6 +1,6 @@
 import {describe, vi, expect, it} from 'vitest'
 
-describe("Controller POST /create-post", () => {
+describe("Repository POST /create-post", () => {
     it("", () => {
 
     })

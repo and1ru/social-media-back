@@ -3,7 +3,7 @@ import cors from "cors"
 import cookieParser from "cookie-parser"
 
 import { routes } from "./app.routes.ts"
-import { errorMiddleware } from "./middlewares/errorMiddleware.ts"
+import { errorMiddleware } from "./middlewares/errorMiddleware/errorMiddleware.ts"
 
 export const app = express()
 

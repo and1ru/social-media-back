@@ -19,7 +19,7 @@ describe("Controller GET /like/:postId", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn()
     })
@@ -31,7 +31,7 @@ describe("Controller GET /like/:postId", () => {
                 id: "mocked userId",
                 name: "mocked userName"
             }
-        } as Request
+        } as unknown as Request
 
         const result = {liked:true, likes:4}
 

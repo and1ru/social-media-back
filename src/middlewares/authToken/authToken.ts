@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 import type { NextFunction, Request, Response } from 'express'
-import { envs } from '../helpers/envs.ts'
+import { envs } from '../../helpers/envs.ts'
 
 interface payload {
     id: string,

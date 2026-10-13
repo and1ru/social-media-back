@@ -6,13 +6,14 @@ export class UsersConnectedController {
 
     usersConnected = (req:Request, res:Response, next:NextFunction) => {
         const { userId } = req.params
+
         if(!userId || typeof userId !== "string"){
             return res.status(400).json({message:"debe tener un id"})
         }
 
         try {
             const result = this.service.usersConnected(userId)
-            return res.status(200).json({message:"got status", result})
+            return res.status(200).json({ message:"got status", success:true, result })
         } catch (error) {
             return next(error)
         }

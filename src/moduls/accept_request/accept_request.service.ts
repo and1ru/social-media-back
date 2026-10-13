@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { addFriends } from "./accept_request.repository.ts";
 import { CustomError } from "../../helpers/customError.ts";
-import { findRequestById } from "../../shared/repositories/findRequest.repository.ts";
+import { findRequestById } from "../../shared/repositories/findRequest/findRequest.repository.ts";
 
 export class AcceptRequestService {
   acceptRequest = async (id: string) => {

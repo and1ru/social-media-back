@@ -1,10 +1,10 @@
 import { describe, expect, vi, it, beforeEach } from "vitest";
-import { findPost } from "../../../shared/repositories/findPostById.repository";
 import { getComments, countComments } from "../get_post_comment.repository";
 import { GetPostCommentsService } from "../get_post_comment.service";
 import { ObjectId } from "mongodb";
+import { findPost } from "../../../shared/repositories/findPostById/findPostById.repository";
 
-vi.mock("../../../shared/repositories/findPostById.repository")
+vi.mock("../../../shared/repositories/findPostById/findPostById.repository")
 vi.mock("../get_post_comment.repository")
 
 describe("Service GET /comments/:postId", () => {

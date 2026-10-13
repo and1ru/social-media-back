@@ -1,5 +1,5 @@
 import { CustomError } from "../../helpers/customError";
-import { findPost } from "../../shared/repositories/findPostById.repository";
+import { findPost } from "../../shared/repositories/findPostById/findPostById.repository";
 import { getComments, countComments } from "./get_post_comment.repository";
 
 export class GetPostCommentsService {

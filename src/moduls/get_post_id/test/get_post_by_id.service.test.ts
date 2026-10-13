@@ -1,9 +1,9 @@
 import { describe, expect, vi, it, beforeEach } from "vitest";
-import { findPost } from "../../../shared/repositories/findPostById.repository";
 import { PostByIdService } from "../get_post_by_id.service";
 import { ObjectId } from "mongodb";
+import { findPost } from "../../../shared/repositories/findPostById/findPostById.repository";
 
-vi.mock("../../../shared/repositories/findPostById.repository")
+vi.mock("../../../shared/repositories/findPostById/findPostById.repository")
 
 describe("Service GET /post/:postId", () => {
     let service: PostByIdService

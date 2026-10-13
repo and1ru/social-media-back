@@ -7,6 +7,6 @@ export class LogOutController {
           httpOnly: true,
           secure: false
         })
-        return res.status(200).json({status:true, message:"sesion cerrada correctamente"})
+        return res.status(200).json({status:true, message:"loged out"})
     }
 }

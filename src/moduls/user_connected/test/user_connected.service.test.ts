@@ -1,6 +1,6 @@
 import { describe, expect, vi, it } from "vitest";
 
-describe("Controller GET /status/:userId", () => {
+describe("Service GET /status/:userId", () => {
     it("", () => {
 
     })

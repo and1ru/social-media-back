@@ -33,7 +33,7 @@ describe("Controller DELETE /post/:postId", () => {
             user: {
                 id: "mocked userId"
             }
-        } as Request
+        }as unknown as Request
 
         await controller.deletePost(req, res, next)
 
@@ -67,7 +67,7 @@ describe("Controller DELETE /post/:postId", () => {
             user: {
                 id: "mocked userId"
             }
-        } as Request
+        } as unknown as Request
 
         const error = new Error()
         vi.mocked(service.deletePost).mockRejectedValue(error)

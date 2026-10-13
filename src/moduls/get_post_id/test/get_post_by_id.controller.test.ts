@@ -16,7 +16,7 @@ describe("Controller GET /post/:postId", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn()
 
@@ -30,7 +30,7 @@ describe("Controller GET /post/:postId", () => {
     it("got post by id", async () => {
         const req = {
             params: { postId: postId.toString() },
-        } as Request
+        } as unknown as Request
 
         const result = { _id:postId }
         vi.mocked(service.postById).mockResolvedValue(result)
@@ -56,7 +56,7 @@ describe("Controller GET /post/:postId", () => {
     it("service error", async () => {
         const req = {
             params: { postId: postId.toString()},
-        } as Request
+        } as unknown as Request
 
         const error = new Error()
         vi.mocked(service.postById).mockRejectedValue(error)

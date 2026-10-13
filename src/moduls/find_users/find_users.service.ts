@@ -1,5 +1,5 @@
 import { CustomError } from "../../helpers/customError.ts";
-import { findRequest } from "../../shared/repositories/findRequest.repository.ts";
+import { findRequest } from "../../shared/repositories/findRequest/findRequest.repository.ts";
 import { findUserById } from "../../shared/repositories/findUser/findUser.repository.ts";
 import { findUsers } from "./find_users.repository.ts";
 

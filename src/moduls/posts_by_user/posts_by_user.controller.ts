@@ -12,7 +12,7 @@ export class PostsByUserController {
 
         try {
             const result = await this.service.postByUser(userId)
-            return res.status(200).json({ message: "got post by userId", result })
+            return res.status(200).json({ message: "got post by userId", success:true, result })
         } catch (error) {
             return next(error)
         }

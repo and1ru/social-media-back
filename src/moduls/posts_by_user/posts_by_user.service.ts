@@ -3,11 +3,10 @@ import { findUserById } from "../../shared/repositories/findUser/findUser.reposi
 import { postByUserRepository } from "./posts_by_user.repository";
 
 export class PostsByUserService {
-  // verificar que el usuario exista
   postByUser = async (userId: string) => {
     const user = await findUserById(userId);
     if (!user) {
-      return new CustomError("no user", 404);
+      throw new CustomError("no user", 404);
     }
 
     return await postByUserRepository(userId);

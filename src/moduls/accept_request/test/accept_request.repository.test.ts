@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 
-describe("Add friends", () => {
+describe("Repository PUT /accept-request", () => {
     it("", () => {
 
     })

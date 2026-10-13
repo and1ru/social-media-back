@@ -1,11 +1,11 @@
 import { describe, expect, vi, it, beforeEach } from "vitest";
 import { DeletePostService } from "../delete_post.service";
 import { deletePostRepository } from "../delete_post.repository";
-import { findPost } from "../../../shared/repositories/findPostById.repository";
 import { ObjectId } from "mongodb";
+import { findPost } from "../../../shared/repositories/findPostById/findPostById.repository";
 
 vi.mock("../delete_post.repository")
-vi.mock("../../../shared/repositories/findPostById.repository")
+vi.mock("../../../shared/repositories/findPostById/findPostById.repository")
 
 describe("Service DELETE /post/:postId", () => {
     let service: DeletePostService

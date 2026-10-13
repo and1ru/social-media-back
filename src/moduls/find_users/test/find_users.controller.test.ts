@@ -14,7 +14,7 @@ describe("Controller GET /find-users", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn()
 
@@ -33,7 +33,7 @@ describe("Controller GET /find-users", () => {
             user: {
                 id: "mocked userId"
             }
-        } as Request
+        } as unknown as Request
 
         const result = [{ id: new ObjectId(), name: "mocked name", relation: "mocked relation" }]
 
@@ -69,7 +69,7 @@ describe("Controller GET /find-users", () => {
             user: {
                 id: "mocked userId"
             }
-        } as Request
+        } as unknown as Request
 
         const error = new Error()
         vi.mocked(service.findUsers).mockRejectedValue(error)

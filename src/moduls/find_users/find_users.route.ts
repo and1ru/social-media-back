@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { FindUsersController } from "./find_users.controller";
 import { FindUsersService } from "./find_users.service";
-import { AuthToken } from "../../middlewares/authToken";
+import { AuthToken } from "../../middlewares/authToken/authToken";
 
 const service = new FindUsersService()
 const controller = new FindUsersController(service)

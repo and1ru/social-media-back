@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { LoginController } from "./login.controller";
 import { LoginService } from "./login.service";
-import { rateLimit } from "../../middlewares/rateLimit";
+import { rateLimit } from "../../middlewares/rateLimit/rateLimit";
 import { envs } from "../../helpers/envs";
 
 const service = new LoginService();

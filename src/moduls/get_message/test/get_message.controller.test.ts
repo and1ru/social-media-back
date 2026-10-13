@@ -20,7 +20,7 @@ describe("Controller GET /get-messages/:friendId", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn
     })
@@ -29,7 +29,7 @@ describe("Controller GET /get-messages/:friendId", () => {
         const req = {
             params: { friendId },
             user: { id: "mocked userId", name: "mocked userName"}
-        } as Request
+        } as unknown as Request
 
         const result = [{_id: "mocked message"}]
 
@@ -58,7 +58,7 @@ describe("Controller GET /get-messages/:friendId", () => {
         const req = {
             params: { friendId },
             user: { id: "mocked userId", name: "mocked userName" }
-        } as Request
+        } as unknown as Request
 
         const error = new Error()
         vi.mocked(service.getMessage).mockRejectedValue(error)

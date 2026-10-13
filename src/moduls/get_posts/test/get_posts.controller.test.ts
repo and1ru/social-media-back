@@ -20,7 +20,7 @@ describe("Controller GET /get-posts", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn()
     })

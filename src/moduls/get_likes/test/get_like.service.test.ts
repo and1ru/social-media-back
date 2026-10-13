@@ -1,11 +1,11 @@
 import { describe, expect, vi, it, beforeEach } from "vitest";
 import { GetLikesService } from "../get_like.service";
-import { findPost } from "../../../shared/repositories/findPostById.repository";
 import { countLikesPosts } from "../../../shared/repositories/countLikesPosts/countLikesPosts.repository";
 import { findLikeRepository } from "../../../shared/repositories/findLikeRepository/findLikeRepository.repository";
 import { ObjectId } from "mongodb";
+import { findPost } from "../../../shared/repositories/findPostById/findPostById.repository";
 
-vi.mock("../../../shared/repositories/findPostById.repository")
+vi.mock("../../../shared/repositories/findPostById/findPostById.repository")
 vi.mock("../../../shared/repositories/countLikesPosts/countLikesPosts.repository")
 vi.mock("../../../shared/repositories/findLikeRepository/findLikeRepository.repository")
 

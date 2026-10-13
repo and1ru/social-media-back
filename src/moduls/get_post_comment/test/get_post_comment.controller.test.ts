@@ -16,7 +16,7 @@ describe("Controller GET /comments/:postId", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Response
+        } as unknown as Response
 
         next = vi.fn()
 
@@ -34,7 +34,7 @@ describe("Controller GET /comments/:postId", () => {
                 id: userId,
                 name: "mocked name"
             }
-        } as Request
+        } as unknown as Request
 
         const response = {
             commentCount: 1,
@@ -58,7 +58,7 @@ describe("Controller GET /comments/:postId", () => {
                 id: userId,
                 name: "mocked name"
             }
-        } as Request
+        } as unknown as Request
 
         await controller.getPostComments(req, res, next)
 
@@ -75,7 +75,7 @@ describe("Controller GET /comments/:postId", () => {
                 id: userId,
                 name: "mocked name"
             }
-        } as Request
+        } as unknown as Request
 
         const error = new Error()
         vi.mocked(service.getPostComments).mockRejectedValue(error)

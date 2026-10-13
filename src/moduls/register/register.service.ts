@@ -9,7 +9,7 @@ export class RegisterService {
     // verificar que no exista el amail
     const result = await findUserByEmail(user.email);
     if (result) {
-      throw new CustomError("email existe", 409);
+      throw new CustomError("email is used", 409);
     }
 
     // hash password

@@ -1,6 +1,6 @@
 import { describe, expect, vi, it } from "vitest";
 
-describe("Controller GET /find-users", () => {
+describe("Service GET /find-users", () => {
     it("did not find user", () => {
 
     })

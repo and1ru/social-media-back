@@ -20,7 +20,7 @@ describe("Controller GET /get-requests", () => {
         res = {
             status: vi.fn().mockReturnThis(),
             json: vi.fn()
-        } as Request
+        } as unknown as Response
 
         next = vi.fn()
     })

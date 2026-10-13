@@ -1,5 +1,5 @@
 import { CustomError } from "../../helpers/customError.ts";
-import { findRequest } from "../../shared/repositories/findRequest.repository.ts";
+import { findRequest } from "../../shared/repositories/findRequest/findRequest.repository.ts";
 import { findUserById } from "../../shared/repositories/findUser/findUser.repository.ts";
 import { sendRequest } from "./send_request.repository.ts";
 
@@ -42,7 +42,7 @@ export class SendRequestService {
 
     // 2. si hay algo retornar un error
     if (verifyRequest) {
-      throw new CustomError("ya se ha enviado la peticion", 400);
+      throw new CustomError("request already had been sent", 400);
     }
 
     const newRequest = {

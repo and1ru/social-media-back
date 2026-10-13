@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeAll, afterAll } from 'vitest'
+import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import request from 'supertest'
 import { app } from '../../../app'
 import { tokenTest } from '../../../helpers/tokenTest'
@@ -7,7 +7,7 @@ import { ObjectId, type Document, type InsertOneResult } from 'mongodb'
 import { createPost } from '../../create_post/create_post.repository'
 import { myDb } from '../../../helpers/pool'
 
-describe("Routes POST /comment", () => {
+describe("Route POST /comment", () => {
     let post:InsertOneResult<Document>
 
     beforeAll(async () => {

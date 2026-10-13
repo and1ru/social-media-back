@@ -1,6 +1,6 @@
 import { describe, expect, vi, it } from "vitest";
 
-describe("Controller PUT /reject-request", () => {
+describe("Route PUT /reject-request", () => {
     it("", () => {
 
     })

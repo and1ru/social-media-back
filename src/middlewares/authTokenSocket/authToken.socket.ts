@@ -1,8 +1,8 @@
 import type { Server } from "socket.io";
 import { parseCookie } from "cookie";
 import jwt from "jsonwebtoken";
-import { CustomError } from "../helpers/customError.ts";
-import { envs } from "../helpers/envs.ts";
+import { CustomError } from "../../helpers/customError.ts";
+import { envs } from "../../helpers/envs.ts";
 
 interface payload {
   id: string;
