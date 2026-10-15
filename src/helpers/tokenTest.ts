@@ -16,7 +16,7 @@ export const tokenTest = (url: string, method: "get" | "post" | "put" | "patch" 
                 .set("Cookie", [`token=invalid-token`])
 
             expect(response.status).toBe(401)
-            expect(response.body).toEqual({ message: "token no valido o expirado", success: false })
+            expect(response.body).toEqual({message:"expired or invalid token", success:false})
         })
     })
 }

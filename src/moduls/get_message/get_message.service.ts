@@ -22,7 +22,6 @@ export class GetMessagesService {
     // si esta hacer un sort con los ids para encontrar el chat y sus mensajes
     const chat = [userId, friendId].sort().join("-");
     const result = await getMessagesRepository(chat);
-    console.log(result)
     return result
   };
 }

@@ -20,7 +20,6 @@ export const AuthToken = (req: Request, res: Response, next: NextFunction) => {
 
         next()
     } catch (error) {
-        return res.status(401).json({message:"token no valido o expirado", success:false})
+        return res.status(401).json({message:"expired or invalid token", success:false})
     }
-
 }

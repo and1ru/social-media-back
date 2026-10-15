@@ -8,6 +8,6 @@ const controller = new FindUsersController(service)
 
 const route = Router()
 
-route.get("/find-users", AuthToken, controller.findUsers);
+route.get("/find-users/:name", AuthToken, controller.findUsers);
 
 export default route

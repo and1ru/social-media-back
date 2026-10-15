@@ -1,6 +1,6 @@
 import { ObjectId } from "mongodb"
 import { myDb } from "../../helpers/pool.ts"
-import type { ResultUsers } from "../../shared/repositories/findUser.repository.ts"
+import type { ResultUsers } from "../../shared/repositories/findUser/findUser.repository.ts"
 
 export const findUsers = async (name:string, userId:string) => {
     return await myDb.collection<ResultUsers>("users").find({
